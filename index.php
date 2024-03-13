@@ -1,9 +1,8 @@
-<?php include("task.php"); ?>
+<?php include("taskController.php"); ?>
 <!doctype html>
 <html lang="es">
     <head>
         <title>Lista de Tareas Interactiva</title>
-        <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
             name="viewport"
@@ -11,7 +10,6 @@
         />
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <!-- Bootstrap CSS v5.2.1 -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -32,34 +30,69 @@
                 <main class="card-body">
                     <form action="" method="post">
 
-                        <section class="mb-3">
-                            <label for="task" class="form-label">Tarea:</label>
+                        <div class="form-floating mb-3">
                             <input
                                 type="text"
                                 class="form-control"
-                                name="task"
-                                id="task"
-                                aria-describedby="helpId"
-                                placeholder="Escriba su tarea"
+                                name="taskTitle"
+                                id="taskTitle"
+                                placeholder="Tarea"
                             />
+                            <label for="taskTitle">Tarea</label>
+                        </div>
+                        <div class="form-floating">
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="taskDescription"
+                                id="taskDescription"
+                                placeholder="Escriba la descripción de su tarea"
+                            />
+                            <label for="taskDescription">Descripción</label>
+                        </div>
+                        <div class="form-floating">
                             <button 
-                                class="btn btn-primary mt-1"
+                                class="btn btn-outline-primary mt-3"
                                 name="add_task"
                                 id="add_task"
                                 type="submit">
-                                Agregar tarea
+                                Agregar
                             </button>
-                            
-                        </section>
-
-                        <section class="list-group">
-                            <label class="list-group-item">
-                                <input class="form-check-input me-1" type="checkbox" value="" />
-                                Tarea 1
-                            </label>
-                        </section>
-                        
+                        </div>
                     </form>
+                        
+
+                    <ul class="list-group mt-3">
+                        <?php
+                        foreach($tasks as $task){ ?>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="" />
+                            <h6><?php echo $task['title']; ?></h6>
+                            <p><em><small><?php echo $task['description']; ?></small></em></p>
+                            <a
+                                class="btn btn-danger btn-sm float-end"
+                                name="delete_task"
+                                id="delete_task"
+                                href="?id=<?php echo $task['id']; ?>"
+                                >
+                                Eliminar
+                                <span
+                                    class="badge bg-danger"
+                                    ><i class="fa-solid fa-trash"></i></span
+                                >
+                            </a>
+                            <button
+                                class="btn btn-primary btn-sm float-end me-1">
+                                Editar
+                                <span
+                                    class="badge bg-primary"
+                                    ><i class="fa-solid fa-pen-to-square"></i></span
+                                >
+                            </button>    
+                        </li>
+                        <?php } ?>
+                    </ul>
+                        
                 </main >
                 <footer class="card-footer text-muted">
                     Tomás Felice - Desafío Quinttos
@@ -69,7 +102,11 @@
         <footer>
             <!-- place footer here -->
         </footer>
-        <!-- Bootstrap JavaScript Libraries -->
+    
+        <script src="https://kit.fontawesome.com/b6d73066f0.js"
+                crossorigin="anonymous">
+        </script>
+
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

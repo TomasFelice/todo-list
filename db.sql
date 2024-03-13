@@ -1,3 +1,5 @@
+CREATE DATABASE todo_list_db;
+
 USE todo_list_db;
 
 CREATE TABLE IF NOT EXISTS task(
