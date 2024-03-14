@@ -33,12 +33,6 @@
             crossorigin="anonymous">
         </script>
         
-        <style>
-            .completed {
-                text-decoration: line-through;
-                opacity: 0.5;
-            }
-            </style>
     </head>
 
     <body class="bg-dark">
@@ -48,7 +42,7 @@
         <main class="container mt-3">
             <section class="card bg-light">
                 <header class="card-header d-flex justify-content-center">
-                    <h1>Lista de Tareas Interactiva</h1>
+                    <a href="index.php" ><h1>Lista de Tareas Interactiva</h1></a>
                 </header>
                 <main class="card-body">
                     <form action="" method="post">
@@ -57,21 +51,21 @@
                             <input
                                 type="text"
                                 class="form-control"
-                                name="taskTitle"
-                                id="taskTitle"
+                                name="task_title"
+                                id="task_title"
                                 placeholder="Tarea"
                             />
-                            <label for="taskTitle">Tarea</label>
+                            <label for="task_title">Tarea</label>
                         </div>
                         <div class="form-floating">
                             <input
                                 type="text"
                                 class="form-control"
-                                name="taskDescription"
-                                id="taskDescription"
+                                name="task_description"
+                                id="task_description"
                                 placeholder="Escriba la descripción de su tarea"
                             />
-                            <label for="taskDescription">Descripción</label>
+                            <label for="task_description">Descripción</label>
                         </div>
                         <div class="form-floating">
                             <button 
@@ -86,8 +80,9 @@
                         
 
                     <ul class="list-group mt-3">
-                        <?php
-                        foreach($tasks as $task){ ?>
+                    <?php
+                    foreach($tasks as $task){
+                    ?>
                         <li class="list-group-item">
                             <form action="" method="post">
                                 <input 
@@ -98,19 +93,19 @@
                                 <input 
                                     class="form-check-input me-1" 
                                     type="checkbox" 
-                                    name="task_checkbox"
-                                    id="task_checkbox"
+                                    name="task_completed"
+                                    id="task_completed"
                                     value="<?php echo $task['completed']; ?>"
                                     onChange="this.form.submit()"
                                     <?php echo ($task['completed'] == 1) ? 'checked': '';?> 
                                 >
                             </form>
                             
-                            <h6 class="<?php echo ($task['completed'] == 1) ? 'completed': '';?>">
+                            <h6 class="<?php echo ($task['completed'] == 1) ? 'text-decoration-line-through opacity-50': '';?>">
                                 <?php echo $task['title']; ?>
                             </h6>
-                            <p class="<?php echo ($task['completed'] == 1) ? 'completed': '';?>">
-                                <em><small><?php echo $task['description']; ?></small></em>
+                            <p class="fst-italic fs-6 <?php echo ($task['completed'] == 1) ? 'text-decoration-line-through opacity-50': ''; ?>">
+                                <?php echo $task['description']; ?>
                             </p>
                             <a
                                 class="btn btn-danger btn-sm float-end"
@@ -118,18 +113,17 @@
                                 id="delete_task"
                                 href="?id=<?php echo $task['id']; ?>">
                                 Eliminar
-                                <span
-                                    class="badge bg-danger"
-                                    ><i class="fa-solid fa-trash"></i>
+                                <span class="badge bg-danger">
+                                    <i class="fa-solid fa-trash"></i>
                                 </span>
                             </a>   
                         </li>
-                        <?php } ?>
+                    <?php } ?>
                     </ul>
                         
                 </main >
                 <footer class="card-footer text-muted">
-                    Tomás Felice - Desafío Quinttos
+                    Tomás Felice - Desafío Quinttos - 2024
                 </footer>
             </section>
         </main>
