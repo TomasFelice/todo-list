@@ -39,7 +39,7 @@
         <header>
             <!-- place navbar here -->
         </header>
-        <main class="container mt-3">
+        <main class="container mt-3 mb-3">
             <section class="card bg-light">
                 <header class="card-header d-flex justify-content-center">
                     <a href="index.php" class="text-decoration-none text-reset"><h1>Lista de Tareas Interactiva</h1></a>
