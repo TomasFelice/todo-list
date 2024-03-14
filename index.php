@@ -42,7 +42,7 @@
         <main class="container mt-3">
             <section class="card bg-light">
                 <header class="card-header d-flex justify-content-center">
-                    <a href="index.php" ><h1>Lista de Tareas Interactiva</h1></a>
+                    <a href="index.php" class="text-decoration-none text-reset"><h1>Lista de Tareas Interactiva</h1></a>
                 </header>
                 <main class="card-body">
                     <form action="" method="post">
