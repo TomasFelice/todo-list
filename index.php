@@ -122,15 +122,7 @@
                                     class="badge bg-danger"
                                     ><i class="fa-solid fa-trash"></i>
                                 </span>
-                            </a>
-                            <button
-                                class="btn btn-primary btn-sm float-end me-1">
-                                Editar
-                                <span
-                                    class="badge bg-primary"
-                                    ><i class="fa-solid fa-pen-to-square"></i></span
-                                >
-                            </button>    
+                            </a>   
                         </li>
                         <?php } ?>
                     </ul>
